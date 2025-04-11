@@ -20,7 +20,7 @@ const nearbyPlaces = async (latitude,longitude,type) => await axios.post(BASE_UR
       'Content-Type': 'application/json',
       'X-Goog-Api-Key':API_KEY,
     //   'X-Goog-FieldMask':'places.displayName,places.types,places.photos'
-      'X-Goog-FieldMask':'places.displayName,places.id,places.types,places.formattedAddress,places.photos,places.priceLevel,places.userRatingCount,places.rating,places.location'
+      'X-Goog-FieldMask':'places.displayName,places.id,places.types,places.formattedAddress,places.photos,places.priceLevel,places.userRatingCount,places.rating,places.location,places.regularOpeningHours'
       
     }
 });
