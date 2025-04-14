@@ -25,14 +25,14 @@ const GoogleMapView = ({placeList}) => {
                 longitudeDelta:0.0421
             })
         }
-    },[]);
+    },[location]);
   return (
     <View style={{marginTop: 20}}>
             <Text style={{fontSize: 20, marginBottom:10, fontFamily: 'bold'}}>
                 Top Near By Places
             </Text>
         <View style={{marginTop: 20,borderRadius:20,overflow:'hidden'}}>
-        <MapView
+        {location ? <MapView
         style={{
             width:Dimensions.get('screen').width * 0.89,
             height: Dimensions.get('screen').height*0.23,
@@ -46,7 +46,7 @@ const GoogleMapView = ({placeList}) => {
             {placeList?.map((item,index)=>index<=5&&(
                 <PlaceMarker key={index} item={item}/>
             ))}
-        </MapView>
+        </MapView> : null}
         </View>
 
     </View>

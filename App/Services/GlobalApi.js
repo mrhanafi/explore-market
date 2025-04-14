@@ -1,6 +1,7 @@
 import axios from "axios"
 
 const BASE_URL = 'https://places.googleapis.com/v1/places:searchNearby'
+const SEARCH_URL = 'https://places.googleapis.com/v1/places:searchText'
 export const API_KEY = 'AIzaSyB5m_w8mVAD1YeLIrrEQp3rdKd3L7fA-SE'
 
 const nearbyPlaces = async (latitude,longitude,type) => await axios.post(BASE_URL,{
@@ -25,6 +26,19 @@ const nearbyPlaces = async (latitude,longitude,type) => await axios.post(BASE_UR
     }
 });
 
+const searchByText = async (searchText) => await axios.post(SEARCH_URL,{
+    "textQuery": searchText
+}, {
+    headers: {
+      'Content-Type': 'application/json',
+      'X-Goog-Api-Key':API_KEY,
+    //   'X-Goog-FieldMask':'places.displayName,places.types,places.photos'
+      'X-Goog-FieldMask':'places.displayName,places.id,places.types,places.formattedAddress,places.photos,places.priceLevel,places.userRatingCount,places.rating,places.location,places.regularOpeningHours'
+      
+    }
+})
+
 export default {
-    nearbyPlaces
+    nearbyPlaces,
+    searchByText
 }
