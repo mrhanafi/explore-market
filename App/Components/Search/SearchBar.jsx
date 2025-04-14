@@ -4,9 +4,9 @@ import Colors from '../../Shared/Colors';
 import { LinearGradient } from 'expo-linear-gradient';
 import Ionicons from '@expo/vector-icons/Ionicons';
 
-const SearchBar = () => {
+const SearchBar = ({setSearchText}) => {
     const [searchInput,setSearchInput] = useState('');
-    const [searchText,setSearchText] = useState('');
+    // const [searchText,setSearchText] = useState('');
   return (
     <View style={{}}>
       <LinearGradient
